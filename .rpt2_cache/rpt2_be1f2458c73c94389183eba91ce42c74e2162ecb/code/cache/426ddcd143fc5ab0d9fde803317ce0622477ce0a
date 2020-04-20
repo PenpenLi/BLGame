@@ -1,0 +1,4 @@
+{
+  "code": "export default class BaseDialogRt extends Laya.Dialog {\r\n    openedCallBack(callBack) {\r\n        this.opened_call_back = callBack;\r\n    }\r\n    onOpened(param) {\r\n        console.log(\"BaseDialogRt----------------onOpened param=\", param);\r\n        this.opened_call_back && this.opened_call_back(param);\r\n    }\r\n}\r\n",
+  "references": []
+}

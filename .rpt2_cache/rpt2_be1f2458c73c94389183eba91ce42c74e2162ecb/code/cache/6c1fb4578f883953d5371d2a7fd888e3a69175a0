@@ -1,0 +1,4 @@
+{
+  "code": "export default class ConfigData {\r\n}\r\nConfigData.GAME_NAME = \"game_name\";\r\nConfigData.VERSION = 100;\r\nConfigData.GameId = \"\";\r\nConfigData.Scene = \"0\";\r\nConfigData.Code = \"\";\r\nConfigData.OpenId = \"\";\r\nConfigData.IsMisLead = false;\r\nConfigData.IsStatus = false;\r\nexport class LocalStorageKey {\r\n}\r\nLocalStorageKey.COIN = \"COIN\";\r\n",
+  "references": []
+}

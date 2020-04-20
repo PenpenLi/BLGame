@@ -1,0 +1,6 @@
+{
+  "code": "import BaseDialog from \"../BaseDialogSc\";\r\nexport default class LoadingSc extends BaseDialog {\r\n    initData() {\r\n    }\r\n    findView() {\r\n    }\r\n    initView() {\r\n    }\r\n    screenAdaptation() {\r\n    }\r\n    onClick() {\r\n    }\r\n}\r\n",
+  "references": [
+    "E:/laya project/BLGame/src/UI/BaseDialogSc.ts"
+  ]
+}

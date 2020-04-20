@@ -1,0 +1,9 @@
+{
+  "code": "import { LocalStorageKey } from \"../Data/ConfigData\";\r\nimport LocalStorageUtil from \"../Utils/LocalStorageUtil\";\r\nimport TipsUtil from \"../Utils/TipsUtil\";\r\nimport EventCenter, { EventName } from \"../Utils/EventCenter\";\r\nexport default class CoinMg {\r\n    constructor() {\r\n        this.isDoubleCoin = false;\r\n        this.coin = 0;\r\n        this.GetCoinTimes = 3;\r\n    }\r\n    static get Instance() {\r\n        if (!CoinMg.instance) {\r\n            CoinMg.instance = new CoinMg();\r\n        }\r\n        return CoinMg.instance;\r\n    }\r\n    init(debugNum) {\r\n        if (debugNum) {\r\n            this.coin = debugNum;\r\n        }\r\n        else {\r\n            this.coin = LocalStorageUtil.getNumber(LocalStorageKey.COIN, 0);\r\n        }\r\n        console.log(\"CoinUtil init success:coin=\", this.coin);\r\n    }\r\n    doubleCoin(isDouble) {\r\n        this.isDoubleCoin = isDouble;\r\n    }\r\n    addCoin(addNum, isShowTips = true) {\r\n        this.coin += addNum;\r\n        LocalStorageUtil.setNumber(LocalStorageKey.COIN, this.coin);\r\n        if (isShowTips) {\r\n            TipsUtil.msg(\"获得\" + addNum + \"金币\");\r\n        }\r\n        EventCenter.getInstance().post(EventName.CoinBox_RefreshCoin);\r\n    }\r\n    reduceCoin(reduceNum) {\r\n        if (this.coin < reduceNum) {\r\n            TipsUtil.msg(\"金币不足\");\r\n        }\r\n        else {\r\n            this.coin -= reduceNum;\r\n            LocalStorageUtil.setNumber(LocalStorageKey.COIN, this.coin);\r\n            EventCenter.getInstance().post(EventName.CoinBox_RefreshCoin);\r\n        }\r\n    }\r\n    getCoin() {\r\n        return this.coin;\r\n    }\r\n}\r\n",
+  "references": [
+    "E:/laya project/BLGame/src/Data/ConfigData.ts",
+    "E:/laya project/BLGame/src/Utils/LocalStorageUtil.ts",
+    "E:/laya project/BLGame/src/Utils/TipsUtil.ts",
+    "E:/laya project/BLGame/src/Utils/EventCenter.ts"
+  ]
+}
